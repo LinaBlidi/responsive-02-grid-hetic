@@ -1,0 +1,26 @@
+@import "reset.css";
+
+.el {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  background-color: lightgrey;
+}
+
+$types: alkaliMetal lanthanide nobleGas transitionMetal postTransitionMetal
+  alkalineEarthMetal actinide metalloid otherNonMetal;
+
+@each $type in $types {
+  .el--#{$type} {
+    background: hsl((360 / length($types)) * index($types, $type), 50%, 75%);
+  }
+}
+
+.el__symbol {
+  font-size: 1.5em;
+}
+
+.el__name {
+  font-size: 12px;
+}
